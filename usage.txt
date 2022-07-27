@@ -1,0 +1,19 @@
+This is the manual for running the 2UCIS assembler program intended for WINDOWS 10/11. (If you are
+currently running MacOS or a Linux distribution, see this video: https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
+First, download python from this link https://www.python.org/downloads/.
+
+Run through the installation wizard and wait for python to install.
+
+Once installed, hit the windows key and type in "cmd". Open the first program that pops up which should be named
+"Command Prompt". Type in "cd <path>" and replace <path> with the path to the assembly.py file. In the same directory
+or folder as the assembly.py file should be your assembly file which should hold the instructions for the program.
+
+No libraries are necessary for this program to work.
+
+Once you are in the working directory with both files, you can run the command:
+
+    python assembler.py <assembly.txt> <instructioncode.txt>
+
+where <assembly.txt> is replaced with the name of your file containing the assembly instructions and 
+<instructioncode.txt> is replaced with the name of the file you wish to output the machinecode to.

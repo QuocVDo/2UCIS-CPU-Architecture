@@ -1,0 +1,101 @@
+C:/Users/burni/Downloads/128221518/program2/Ctrl.sv {1 {vlog -work work -sv -stats=none C:/Users/burni/Downloads/128221518/program2/Ctrl.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Ctrl
+
+Top level modules:
+	Ctrl
+
+} {} {}} C:/Users/burni/Downloads/128221518/program2/LUT.sv {1 {vlog -work work -sv -stats=none C:/Users/burni/Downloads/128221518/program2/LUT.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module LUT
+
+Top level modules:
+	LUT
+
+} {} {}} C:/Users/burni/Downloads/128221518/program2/mux2x1.sv {1 {vlog -work work -sv -stats=none C:/Users/burni/Downloads/128221518/program2/mux2x1.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module mux2x1
+
+Top level modules:
+	mux2x1
+
+} {} {}} C:/Users/burni/Downloads/128221518/program2/RegFile.sv {1 {vlog -work work -sv -stats=none C:/Users/burni/Downloads/128221518/program2/RegFile.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module RegFile
+
+Top level modules:
+	RegFile
+
+} {} {}} C:/Users/burni/Downloads/128221518/program2/TopLevel_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/burni/Downloads/128221518/program2/TopLevel_tb.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module TopLevel_tb
+
+Top level modules:
+	TopLevel_tb
+
+} {} {}} C:/Users/burni/Downloads/128221518/program2/DoneFlagComparator.sv {1 {vlog -work work -sv -stats=none C:/Users/burni/Downloads/128221518/program2/DoneFlagComparator.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module DoneFlagComparator
+
+Top level modules:
+	DoneFlagComparator
+
+} {} {}} C:/Users/burni/Downloads/128221518/program2/DataMem.sv {1 {vlog -work work -sv -stats=none C:/Users/burni/Downloads/128221518/program2/DataMem.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module DataMem
+
+Top level modules:
+	DataMem
+
+} {} {}} C:/Users/burni/Downloads/128221518/program2/SignExt.sv {1 {vlog -work work -sv -stats=none C:/Users/burni/Downloads/128221518/program2/SignExt.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module SignExt
+
+Top level modules:
+	SignExt
+
+} {} {}} C:/Users/burni/Downloads/128221518/program2/Definitions.sv {1 {vlog -work work -sv -stats=none C:/Users/burni/Downloads/128221518/program2/Definitions.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling package Definitions
+
+Top level modules:
+	--none--
+
+} {} {}} C:/Users/burni/Downloads/128221518/program2/InstMem.sv {1 {vlog -work work -sv -stats=none C:/Users/burni/Downloads/128221518/program2/InstMem.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module InstMem
+
+Top level modules:
+	InstMem
+
+} {} {}} C:/Users/burni/Downloads/128221518/program2/mux3x1.sv {1 {vlog -work work -sv -stats=none C:/Users/burni/Downloads/128221518/program2/mux3x1.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module mux3x1
+
+Top level modules:
+	mux3x1
+
+} {} {}} C:/Users/burni/Downloads/128221518/program2/ProgCtr.sv {1 {vlog -work work -sv -stats=none C:/Users/burni/Downloads/128221518/program2/ProgCtr.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ProgCtr
+
+Top level modules:
+	ProgCtr
+
+} {} {}} C:/Users/burni/Downloads/128221518/program2/ALU.sv {1 {vlog -work work -sv -stats=none C:/Users/burni/Downloads/128221518/program2/ALU.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling package ALU_sv_unit
+-- Importing package Definitions
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} C:/Users/burni/Downloads/128221518/program2/TopLevel.sv {1 {vlog -work work -sv -stats=none C:/Users/burni/Downloads/128221518/program2/TopLevel.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module TopLevel
+
+Top level modules:
+	TopLevel
+
+} {} {}}

@@ -1,0 +1,533 @@
+addi r1 1 #r1 = LSW + 1 (mSW) 31 in first iteration
+ma r1 l #r0 = b11 b10 b9 b8 b7 b6 b5 p8
+land r7 5 #Extract P8: r7 = p8
+bs r7 l 3 #
+bs r7 l 2 #r7 = 0 0 p8 0 0 0 0 0 
+xor r5 r5 #Clear r5
+bs r0 r 1 #r0 = 0 b11 b10 b9 b8 b7 b6 b5
+bs r0 l 3 #
+bs r0 l 1 #r0 = b8 b7 b6 b5 0 0 0 0
+xor r5 r0 #r5 = b8 b7 b6 b5 0 0 0 0
+ma r1 l #Load mSW
+bs r0 r 3 #
+bs r0 r 2 #r0 = 0 0 0 0 0 b11 b10 b9
+ma r1 s #STorE DECoDED mSW To rEaD aDDrESS (31 initially)
+addi r1 -1 #r1 = address of LSW (30 initially)
+ma r1 l #Load LSW r0 = b4 b3 b2 p4 b1 p2 p1 p0
+land r6 4 #r6 = 0 0 0 p4 0 p2 p1 p0
+or r7 r6 #r7 = 0 0 p8 p4 0 p2 p1 p0
+xor r0 r6 #r0 = b4 b3 b2 0 b1 0 0 0 (clear the parities)
+bs r0 r 3 #r6 = 0 0 0 b4 b3 b2 0 b1
+land r3 5 #r3 = 0 0 0 0 0 0 0 b1
+bs r0 r 1 #r6 = 0 0 0 0 b4 b3 b2 0
+or r0 r3 #r6 = 0 0 0 0 b4 b3 b2 b1
+or r5 r0 #r5 = b8 b7 b6 b5 b4 b3 b2 b1
+xor r0 r0 #Clear r0
+xor r0 r5 #Copy over r5 into r0
+ma r1 s #store decodedLSW to readaddress (initially 30)
+addi r1 1 #r1 = mSW (initially 31)
+ma r1 l #load mSW into r0
+rxor r6 r0 #r6 = ^(b11:b9)
+addi r1 -1 #r1 = 0. r1 now contains LSW address (initially 30)
+ma r1 l #load LSW
+bs r0 r 3 #
+bs r0 r 1 #r0 = 0 0 0 0 b8 b7 b6 b5
+rxor r4 r0 #r4 = ^(b8:b5)
+xor r4 r6 #r4 = r4 ^ r6 = ^(b11:b5) = 0 0 0 0 0 0 0 p8
+bs r4 l 3 #
+bs r4 l 2 #r4 = 0 0 p8 0 0 0 0 0 
+addi r1 1 #r1 = 1. (initially 31)
+ma r1 l #Load mSW
+bs r0 l 3 #
+bs r0 l 2 #r0 = b11 b10 b9 0 0 0 0 0 
+xor r5 r5 #Clear r5
+xor r5 r0 #r5 = b11 b10 b9 0 0 0 0 0 
+addi r1 -1 #r1 = address of LSW (30 initially)
+ma r1 l #Load LSW r0 = b8:1—-------------35
+land r6 0 #r6 = b8 0 0 0 b4 b3 b2 0 (maSKING)
+rxor r6 r6 #Parity flag reduction xor. r6 = ^(b8b4b3b2)
+rxor r5 r5 #r5 = ^(b11:9)
+xor r5 r6 #r5 = ^(b11:8b4b3b2) = p4
+bs r5 l 3 #
+bs r5 l 1 #r5 = 0 0 0 p4 0 0 0 0
+or r4 r5 #r4 = 0 0 p8 p4 0 0 0 0 
+addi r1 1 #r1 = mSW address (31 initially)
+ma r1 l #r0 = 0 0 0 0 0 b11 b10 b9
+bs r0 r 1 #r0 = 0 0 0 0 0 0 b11 b10
+rxor r6 r0 #r6 = ^(b11:10)
+addi r1 -1 #r1 = LSW address (INITIaLLY 30) 
+ma r1 l #Load LSW
+land r5 1 #r4 = 0 b7 b6 0 b4 b3 0 b1
+rxor r5 r5 #r4 = ^(b7b6b4b3b1)
+xor r5 r6 #r4 = ^(b11b10b7b6b4 b3b1) = p2
+bs r5 l 2 #r4 = 0 0 0 0 0 p2 0 0
+or r4 r5 #r4 = 0 0 0 p4 0 p2 0 0
+land r5 2 #r5 = 0 b7 0 b5 b4 0 b2 b1
+rxor r5 r5 #r5 = ^(b7b5b4b2b1)
+addi r1 1 #r1 = 1 (mSW)
+ma r1 l #Load mSW
+land r6 3 #r6 = 0 0 0 0 0 b11 0 b9
+rxor r6 r6 #r6 = ^(b11b9) 
+xor r5 r6 #r5 = ^(b11b9b7b5b4b2b1) = p1
+bs r5 l 1 #
+or r4 r5 #r4 = 0 0 0 P4 0 p2 p1 0 ----------------------------------------------------
+rxor r3 r0 #
+addi r1 -1 #
+ma r1 l #
+rxor r0 r0 # RXOR of LSW
+xor r3 r0 #
+xor r5 r5 #
+xor r5 r7 #
+bs r5 r 1 #
+rxor r5 r5 #
+xor r5 r3 #
+or r4 r5 #
+xor r4 r7 #r4 = difference of parities-----------------------------------------85
+xor r5 r5 #Clear r5
+addi r5 1 #r5 = 0 0 0 0 0 0 0 1 
+bs r5 l 3 #
+bs r5 l 2 #
+bs r5 l 1 #r5 = 0 1 0 0 0 0 0 0 
+addi r1 1 #R1 = MSW (31 initially--------------------------------------------------------------------)
+ma r1 l #
+addi r2 1 #
+xor r6 r6 #Clear r6
+xor r7 r7 #Clear r7
+addi r7 1 #r7 = 0 0 0 0 0 0 0 1
+bs r7 l 3 #
+bs r7 l 3 #r7 = 0 1 0 0 0 0 0 0 
+beq r4 r6 #If r4 = 0 then jump to instruction 256
+addi r7 3 #
+addi r7 1 #r7 = 68 (new address we are jumping to)
+addi r6 1 #r6 = 0 0 0 0 0 0 0 1
+beq r4 r6 #If P0 is the only one that doesn’t match then P0 is wrong.
+addi r6 2 #r6 = 0 0 0 0 0 0 1 1
+beq r4 r6 #If p0 and p1 is wrong then jump to INSTrUCTIoN 272
+addi r6 2 #r6 = 0 0 0 0 0 1 0 1
+beq r4 r6 #If p0 and p2 is wrong then jump to INSTrUCTIon 272
+bs r6 l 2 #r6 = 0 0 0 1 0 1 0 0
+addi r6 -3 #r6 = 0 0 0 1 0 0 0 1
+beq r4 r6 #If p0 and p4 is wrong then jump to INSTrUCTIoN 272
+bs r6 l 1 #r6 = 0 0 1 0 0 0 1 0
+addi r6 -1 #r6 = 0 0 1 0 0 0 0 1
+beq r4 r6 #If p0 and p8 is wrong then jump to INSTRUCTION 272
+xor r6 r6 #clear r6
+addi r6 3 #r6 = 0 0 0 0 0 0 1 1
+addi r6 3 #r6 = 0 0 0 0 0 1 1 0
+addi r6 1 #r6 = 0 0 0 0 0 1 1 1
+addi r7 3 #
+addi r7 1 #r7 = 72 (new address we are jumping to is 288)
+beq r4 r6 #If p0 p1 p2 is wrong then jump to INSTrUCTIoN 288
+bs r6 l 1 #r6 = 0 0 0 0 1 1 1 0 
+addi r6 3 #
+addi r6 2 #r6 = 0 0 0 1 0 0 1 1
+addi r7 3 #
+addi r7 1 #r7 = 76 (new address we are jumping to is 304)
+beq r4 r6 #If p0 p1 p4 is wrong then jump to INSTrUCTIoN 304
+addi r6 2 #r6 = 0 0 0 1 0 1 0 1
+addi r7 3 #
+addi r7 1 #r7 = 80 (new address we are jumping to is 320)
+beq r4 r6 #If p0 p2 p4 is wrong then jump to INSTrUCTIoN 320
+addi r6 2 #r6 = 0 0 0 1 0 1 1 1
+addi r7 3 #
+addi r7 1 #r7 = 84 (new address we are jumping to is 336)
+beq r4 r6 #If p0 p1 p2 p4 is wrong then jump to INSTrUCTIoN 336
+xor r6 r6 #Clear r6
+addi r6 1 #r6 = 0 0 0 0 0 0 0 1
+bs r6 l 3 #
+bs r6 l 2 #r6 = 0 0 1 0 0 0 0 0
+addi r6 3 #r6 = 0 0 1 0 0 0 1 1 
+addi r7 3 #
+addi r7 1 #r7 = 88 (new address we are jumping to is 352)
+beq r4 r6 #If p0 p1 p8 is wrong then jump to INSTrUCTIoN 352)
+addi r6 2 #r6 = 0 0 1 0 0 1 0 1
+addi r7 3 #
+addi r7 1 #r7 = 92 (new address we are jumping to is 362)
+beq r4 r6 #If p0 p2 p8 is wrong then jump to INSTrUCTIoN 368)
+addi r6 2 #r6 = 0 0 1 0 0 1 1 1
+addi r7 3 #
+addi r7 1 #r7 = 96 (new address we are jumping to is 384)
+beq r4 r6 #If p0 p1 p2 p8 is wrong then jump to INSTrUCTIoN 384)
+xor r6 r6 #r6 = 0
+addi r6 3 #r6 = 0 0 0 0 0 0 1 1
+bs r6 l 3 #r6 = 0 0 0 1 1 0 0 0 
+bs r6 l 1 #r6 = 0 0 1 1 0 0 0 0 
+addi r6 1 #r6 = 0 0 1 1 0 0 0 1
+addi r7 3 #
+addi r7 1 #r7 = 100 (new address we are jumping to is 400)
+beq r4 r6 #If p0 p4 p8 is wrong then jump to INSTrUCTIoN 400)
+addi r6 2 #r6 = 0 0 1 1 0 0 1 1
+addi r7 3 #
+addi r7 1 #r7 = 104 (new address we are jumping to is 416)
+beq r4 r6 #If p0 p1 p4 p8 is wrong then jump to INSTrUCTIoN 416)
+addi r6 2 #r6 = 0 0 1 1 0 1 0 1
+addi r7 3 #
+addi r7 1 #r7 = 108 (new address we are jumping to is 432)
+beq r4 r6 #If p0 p2 p4 p8 is wrong then jump to INSTrUCTIoN 432)
+addi r6 2 #r6 = 0 0 1 1 0 1 1 1
+addi r7 3 #
+addi r7 1 #r7 = 112 (new address we are jumping to is 448)
+beq r4 r6 #If p0 p1 p2 p4 p8 is wrong then jump to INSTrUCTIoN 448) 
+addi r7 3 #
+addi r7 1 #r7 = 116 (new address we are jumping to is 464)
+beq r7 r7 #Jump to INSTrUCTIon 464 
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+ma r2 s #Store mSW as is No moDS needed
+addi r1 -1 #r1 = LSW (30 initially)
+addi r2 -1 #r2 = LSW (1 initially)
+ma r1 l #Load LSW
+ma r2 s #Store LSW as is
+bs r7 l 1 #r7 = 128 (JUmP To 128*4)
+beq r7 r7 #Jump to END of loop (512)
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+or r0 r5 #0 1 0 0 0 b11 b10 b9 
+ma r2 s #Store mSW
+addi r1 -1 #r1 = LSW (30 initially)
+addi r2 -1 #r2 = LSW (1 initially)
+ma r1 l #Load LSW
+ma r2 s #Store LSW as is
+xor r7 r7 #Clear r7
+addi r7 1 #r1 = 0 0 0 0 0 0 0 1
+bs r7 l 3 #
+bs r7 l 3 #
+bs r7 l 1 #r1 = 1 0 0 0 0 0 0 0 
+beq r7 r7 #Jump to END of loop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+or r0 r5 #0 1 0 0 0 b11 b10 b9 
+ma r2 s #Store mSW
+addi r1 -1 #r1 = LSW (30 initially)
+addi r2 -1 #r2 = LSW (1 initially)
+ma r1 l #Load LSW
+xor r7 r7 #Clear r7
+addi r7 1 #r7 = 0 0 0 0 0 0 0 1
+xor r0 r7 #r0 = b8 b7 b6 b5 b 4 b3 b2 !b1
+ma r2 s #STorE LSW
+bs r7 l 3 #
+bs r7 l 3 #
+bs r7 l 1 #r1 = 1 0 0 0 0 0 0 0 
+beq r7 r7 #Jump to END of loop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+or r0 r5 #0 1 0 0 0 b11 b10 b9 
+ma r2 s #Store mSW
+addi r1 -1 #r1 = LSW (30 initially)
+addi r2 -1 #r2 = LSW (1 initially)
+ma r1 l #Load LSW
+xor r7 r7 #Clear r7
+addi r7 1 #r7 = 0 0 0 0 0 0 0 1
+bs r7 l 1 #r7 = 0 0 0 0 0 0 1 0
+xor r0 r7 #r0 = b8 b7 b6 b5 b 4 b3 !b2 b1
+ma r2 s #STorE LSW
+bs r7 l 3 #
+bs r7 l 3 #r1 = 1 0 0 0 0 0 0 0 
+beq r7 r7 #Jump to END of loop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+or r0 r5 #0 1 0 0 0 b11 b10 b9 
+ma r2 s #Store mSW
+addi r1 -1 #r1 = LSW (30 initially)
+addi r2 -1 #r2 = LSW (1 initially)
+ma r1 l #Load LSW
+xor r7 r7 #Clear r7
+addi r7 1 #r7 = 0 0 0 0 0 0 0 1
+bs r7 l 2 #r7 = 0 0 0 0 0 1 0 0
+xor r0 r7 #r0 = b8 b7 b6 b5 b4 !b3 b2 b1
+ma r2 s #STorE LSW
+bs r7 l 2 #
+bs r7 l 3 #r1 = 1 0 0 0 0 0 0 0 
+beq r7 r7 #Jump to END of loop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+or r0 r5 #0 1 0 0 0 b11 b10 b9 
+ma r2 s #Store mSW
+addi r1 -1 #r1 = LSW (30 initially)
+addi r2 -1 #r2 = LSW (1 initially)
+ma r1 l #Load LSW
+xor r7 r7 #Clear r7
+addi r7 1 #r7 = 0 0 0 0 0 0 0 1
+bs r7 l 3 #r7 = 0 0 0 0 1 0 0 0
+xor r0 r7 #r0 = b8 b7 b6 b5 !b4 b3 b2 b1
+ma r2 s #STorE LSW
+bs r7 l 1 #
+bs r7 l 3 #r1 = 1 0 0 0 0 0 0 0 
+beq r7 r7 #Jump to END of loop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+or r0 r5 #0 1 0 0 0 b11 b10 b9 
+ma r2 s #Store mSW
+addi r1 -1 #r1 = LSW (30 initially)
+addi r2 -1 #r2 = LSW (1 initially)
+ma r1 l #Load LSW
+xor r7 r7 #Clear r7
+addi r7 1 #r7 = 0 0 0 0 0 0 0 1
+bs r7 l 3 #r7 = 0 0 0 0 1 0 0 0
+bs r7 l 1 #r7 = 0 0 0 1 0 0 0 0 
+xor r0 r7 #r0 = b8 b7 b6 !b5 b4 b3 b2 b1
+ma r2 s #STorE LSW
+bs r7 l 3 #r1 = 1 0 0 0 0 0 0 0 
+beq r7 r7 #Jump to END of loop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+or r0 r5 #0 1 0 0 0 b11 b10 b9 
+ma r2 s #Store mSW
+addi r1 -1 #r1 = LSW (30 initially)
+addi r2 -1 #r2 = LSW (1 initially)
+ma r1 l #Load LSW
+xor r7 r7 #Clear r7
+addi r7 1 #r7 = 0 0 0 0 0 0 0 1
+bs r7 l 3 #r7 = 0 0 0 0 1 0 0 0
+bs r7 l 2 #r7 = 0 0 1 0 0 0 0 0 
+xor r0 r7 #r0 = b8 b7 !b6 b5 b4 b3 b2 b1
+ma r2 s #STorE LSW
+bs r7 l 2 #r1 = 1 0 0 0 0 0 0 0 
+beq r7 r7 #Jump to END of loop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+or r0 r5 #0 1 0 0 0 b11 b10 b9 
+ma r2 s #Store mSW
+addi r1 -1 #r1 = LSW (30 initially)
+addi r2 -1 #r2 = LSW (1 initially)
+ma r1 l #Load LSW
+xor r7 r7 #Clear r7
+addi r7 1 #r7 = 0 0 0 0 0 0 0 1
+bs r7 l 3 #r7 = 0 0 0 0 1 0 0 0
+bs r7 l 3 #r7 = 0 1 0 0 0 0 0 0 
+xor r0 r7 #r0 = b8 !b7 b6 b5 b4 b3 b2 b1
+ma r2 s #STorE LSW
+bs r7 l 1 #r1 = 1 0 0 0 0 0 0 0 
+beq r7 r7 #Jump to END of loop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+or r0 r5 #0 1 0 0 0 b11 b10 b9 
+ma r2 s #Store mSW
+addi r1 -1 #r1 = LSW (30 initially)
+addi r2 -1 #r2 = LSW (1 initially)
+ma r1 l #Load LSW
+xor r7 r7 #Clear r7
+addi r7 1 #r7 = 0 0 0 0 0 0 0 1
+bs r7 l 3 #r7 = 0 0 0 0 1 0 0 0
+bs r7 l 3 #r7 = 0 1 0 0 0 0 0 0 
+bs r7 l 1 #r1 = 1 0 0 0 0 0 0 0 
+xor r0 r7 #r0 = !b8 b7 b6 b5 b4 b3 b2 b1
+ma r2 s #STorE LSW
+beq r7 r7 #Jump to END of loop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+or r0 r5 #0 1 0 0 0 b11 b10 b9 
+xor r7 r7 #Clear r7
+addi r7 1 #r7 = 0 0 0 0 0 0 0 1
+xor r0 r7 #r0 = 0 1 0 0 0 b11 b10 !b9
+ma r2 s #Store mSW
+addi r1 -1 #r1 = LSW (30 initially)
+addi r2 -1 #r2 = LSW (1 initially)
+ma r1 l #Load LSW
+ma r2 s #STorE LSW without changing
+bs r7 l 3 #r7 = 0 0 0 0 1 0 0 0
+bs r7 l 3 #r7 = 0 1 0 0 0 0 0 0 
+bs r7 l 1 #r1 = 1 0 0 0 0 0 0 0 
+beq r7 r7 #Jump to END of loop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+or r0 r5 #0 1 0 0 0 b11 b10 b9 
+xor r7 r7 #Clear r7
+addi r7 1 #r7 = 0 0 0 0 0 0 0 1
+bs r7 l 1 #r7 = 0 0 0 0 0 0 1 0 
+xor r0 r7 #r0 = 0 1 0 0 0 b11 !b10 b9
+ma r2 s #Store mSW
+addi r1 -1 #r1 = LSW (30 initially)
+addi r2 -1 #r2 = LSW (1 initially)
+ma r1 l #Load LSW
+ma r2 s #STorE LSW without changing
+bs r7 l 3 #r7 = 0 0 0 0 1 0 0 0
+bs r7 l 3 #r7 = 0 1 0 0 0 0 0 0 
+beq r7 r7 #Jump to END of loop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+or r0 r5 #0 1 0 0 0 b11 b10 b9 
+xor r7 r7 #Clear r7
+addi r7 1 #r7 = 0 0 0 0 0 0 0 1
+bs r7 l 2 #r7 = 0 0 0 0 0 1 0 0 
+xor r0 r7 #r0 = 0 1 0 0 0 !@b11 b10 b9
+ma r2 s #Store mSW
+addi r1 -1 #r1 = LSW (30 initially)
+addi r2 -1 #r2 = LSW (1 initially)
+ma r1 l #Load LSW
+ma r2 s #STorE LSW without changing
+bs r7 l 2 #r7 = 0 0 0 0 1 0 0 0
+bs r7 l 3 #r7 = 1 0 0 0 0 0 0 0 
+beq r7 r7 #Jump to END of loop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+bs r5 l 1 #r5 = 1 0 0 0 0 0 0 0
+or r0 r5 #r0 = 1 0 0 0 0 x x x 
+ma r2 s #Store mSW
+addi r1 -1 #Get address of LSW
+addi r2 -1 #Get address of LSW
+ma r1 l #Load LSW
+ma r2 s #Store LSW
+xor r7 r7 #Clear r7
+addi r7 1 #r7 = 0 0 0 0 0 0 0 1
+bs r7 l 3 #r7 = 0 0 0 0 1 0 0 0
+bs r7 l 3 #r7 = 0 1 0 0 0 0 0 0 
+bs r7 l 1 #r1 = 1 0 0 0 0 0 0 0 
+beq r7 r7 #Jump to END of loop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r1 2 #LSW read address of next message
+addi r2 2 #LSW write address of next message
+xor r6 r6 #Clear r6
+addi r6 3 #
+bs r6 l 2 #
+addi r6 3 #
+bs r6 l 2 #r6 = 0 0 1 1 1 1 0 0 = 60
+addi r7 3 #
+addi r7 2 #r7 = 1 0 0 0 0 1 0 1
+beq r1 r6 #If r1 = 60 jump to 532
+xor r7 r7 #r7 = 0
+beq r7 r7 #else jump to 0
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+addi r7 0 #nop
+done

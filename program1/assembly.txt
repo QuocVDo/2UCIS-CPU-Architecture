@@ -1,0 +1,89 @@
+ma r1 l #load MSW into r0
+rxor r6 r0 #r6 = ^(b11:b9)
+addi r1 -1 #r1 = 0. r1 now contains LSW address
+ma r1 l #load LSW
+bs r0 r 3 # comment
+bs r0 r 1 #r0 = 0 0 0 0 b8 b7 b6 b5
+rxor r4 r0 #r4 = ^(b8:b5)
+xor r4 r6 #r4 = r4 ^ r6 = ^(b11:b5) = p8
+addi r1 1 #r1 = 1. 
+ma r1 l #Load MSW
+bs r0 l 3 # comment
+bs r0 l 2 #r0 = b11 b10 b9 0 0 0 0 0 
+xor r5 r5 #Clear r5
+xor r5 r0 #r5 = b11 b10 b9 0 0 0 0 0 
+addi r1 -1 #r1 = 0 
+ma r1 l #Load LSW
+bs r0 r 3 # comment
+bs r0 r 1 #r0 = 0 0 0 0 b8 b7 b6 b5
+bs r0 l 1 #r0 = 0 0 0 b8 b7 b6 b5 0
+or r0 r5 #r0 = b11 b10 b9 b8 b7 b6 b5 0
+or r0 r4 #r0 = b11 b10 b9 b8 b7 b6 b5 p8
+ma r2 s #Store MSW
+addi r2 -1 #r2 = 30 (address of LSW)
+ma r1 l # load msw r0 = b8:b1
+land r6 0 #
+rxor r6 r6 #
+rxor r5 r5 #
+xor r5 r6 #
+bs r5 l 3 #
+bs r5 l 1 #
+addi r1 1 #
+ma r1 l # MSW
+bs r0 r 1 #r0 = 0 0 0 0 0 0 b11 b10
+rxor r6 r0 #r6 = ^(b11:10)---------------1010 1010. 6 = 1
+addi r1 -1 #r1 = 0 
+ma r1 l #Load LSW----------------------------------------LSW = 0101 0101
+land r4 1 #r4 = 0 b7 b6 0 b4 b3 0 b1 -----------
+rxor r4 r4 #r4 = ^(b7b6b4b3b1)
+xor r4 r6 #r4 = ^(b11b10b7b6b4 b3b1) = p2
+bs r4 l 2 #r4 = 0 0 0 0 0 p2 0 0
+or r4 r5 #r4 = 0 0 0 p4 0 p2 0 0
+land r5 2 #r5 = 0 b7 0 b5 b4 0 b2 b1
+rxor r5 r5 #r5 = ^(b7b5b4b2b1)
+addi r1 1 #r1 = 1 (MSW)
+ma r1 l #Load MSW ---------------------------MSW = 0000 0101
+land r6 3 #r6 = 0 0 0 0 0 b11 0 b9
+rxor r6 r6 #r6 = ^(b11b9)
+xor r5 r6 #r5 = ^(b11b9b7b5b4b2b1) = p1 -----------------------------------------------
+bs r5 l 1 #-------------------------------move it to lect
+or r4 r5 #r4 = 0 0 0 P4 0 p2 p1 0        ---------0101 1010 = 0001 0100
+addi r1 -1 #r1 = 0 
+ma r1 l #Load LSW
+bs r0 l 3 # comment
+bs r0 l 1 #r0 = b4 b3 b2 b1 0 0 0 0
+rxor r6 r0 #r6 = ^(b4b3b2b1)
+rxor r5 r4 #r5 = ^(p4p2p1) -------------------------------r5 gets set to 0
+xor r5 r6 #r5 = p0
+or r4 r5 #r4 = 0 0 0 p4 0 p2 p1 p0
+bs r0 r 3 #comment
+bs r0 r 1 #r3 = b1 (because the last bit shifted out gets saved)
+land r3 5 #grab b1 put it in r3
+bs r0 r 1 # r0 = 0 0 0 0 0 b4 b3 b2
+xor r6 r6 #Clear r6
+xor r6 r3 #r6 = r3 = b1
+bs r6 l 3 #r6 = 0 0 0 0 b1 0 0 0
+or r4 r6 #r4 = 0 0 0 p4 b1 p2 p1 p0
+bs r0 l 3 #comment
+bs r0 l 2 #r0 = b4 b3 b2 0 0 0 0 0
+or r0 r4 #r0 = b4 b3 b2 p4 b1 p2 p1 p0
+ma r2 s #Store LSW
+addi r1 3 #comment
+addi r2 3 #comment
+xor r6 r6 #clear r6
+addi r6 3 #r6 = 0000 0011
+bs r6 l 2 #r6 = 0000 1100
+addi r6 3 #r6 = 0000 1111
+bs r6 l 1 #r6 = 0001 1110
+addi r6 1 #r6 = 31
+xor r7 r7 #clear r7
+addi r7 1 #0000 0001
+bs r7 l 2 #0000 0100
+addi r7 1 #0000 0101
+bs r7 l 2 #0001 0100 r7 = 20
+addi r7 2 #2
+addi r7 0 #
+beq r1 r6 #If r1 = r6 jump to DONE
+xor r7 r7 #Clear r7
+beq r7 r7 #Compare with itself unconditional jump to top of loop
+done

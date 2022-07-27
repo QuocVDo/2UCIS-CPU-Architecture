@@ -1,0 +1,14 @@
+---
+:id: 128221518
+:submitters:
+- :name: Quoc-Zuy Do
+  :email: qdo@ucsd.edu
+- :name: Daniel Pak
+  :email: dapak@ucsd.edu
+:created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: 2022-06-10 15:14:04.559613000 Z
+  zone: !ruby/object:ActiveSupport::TimeZone
+    name: America/Los_Angeles
+  time: 2022-06-10 08:14:04.559613000 Z
+:status: processed
+:score: 51.0

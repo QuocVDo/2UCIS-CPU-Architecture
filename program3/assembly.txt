@@ -1,0 +1,190 @@
+ma r2 l #read in bit pattern from datamem[32]
+xor r4 r0 #Copy bit pattern into r4 = p5 p4 p3 p2 p1 0 0 0 
+xor r2 r2 #
+addi r7 1 #r7 = 1
+ma r1 l #r0 = message = datamem[readaddress]
+bs r0 r 3 #r0 = 0 0 0 b8 b7 b6 b5 b4 (clear bottom 3 bits)
+bs r0 l 3 #r0 = b8 b7 b6 b5 b4 0 0 0 (shift into correct spot)
+xor r0 r4 #compare message with pattern (if perfect match r0 = all 0)
+addi r7 2 #r7 = 3 (Jump to 12)
+beq r0 r3 #If pattern match jump to increment otherwise jump to case 2
+addi r7 1 #r7 = 4 (Jump to 16)
+beq r7 r7 #Jump to case 2
+addi r5 1 #increment patternoccurrences (Part a)
+xor r2 r2 #Clear r2
+addi r2 1 #Set it equal to 1 indicate that we have found occurence
+addi r7 1 #r7 = 4 
+ma r1 l #r0 = message = datamem[readaddress]
+bs r0 r 2 #r0 = 0 0 b8 b7 b6 b5 b4 b3
+bs r0 l 3 #r0 = b7 b6 b5 b4 b3 0 0 0
+xor r0 r4 #compare message with pattern
+addi r7 3 #r7 = 7 (Jump to 28)
+beq r0 r3 #If pattern match jump to increment otherwise jump to case 2
+addi r7 1 #r7 = 8 (Jump to 32)
+beq r7 r7 #Jump to case 3
+addi r7 0 #
+addi r7 0 #
+addi r7 0 #
+addi r7 0 #
+addi r5 1 #increment patternoccurrences (Part a)
+xor r2 r2 #Clear r2
+addi r2 1 #Set it equal to 1 indicate that we have found occurence
+addi r7 1 #r7 = 8
+ma r1 l #r0 = message = datamem[readaddress]
+bs r0 r 1 #r0 = 0 b8 b7 b6 b5 b4 b3 b2
+bs r0 l 3 #r0 = b6 b5 b4 b3 b2 0 0 0
+xor r0 r4 #compare message with pattern
+addi r7 3 #r7 = 11 (Jump to 44)
+beq r0 r3 #If pattern match jump to increment otherwise jump to case 2
+addi r7 1 #r7 = 12 (Jump to 48)
+beq r7 r7 #Jump to case 4
+addi r7 0 #
+addi r7 0 #
+addi r7 0 #
+addi r7 0 #
+addi r5 1 #increment patternoccurrences (Part a)
+xor r2 r2 #Clear r2
+addi r2 1 #Set it equal to 1 indicate that we have found occurence
+addi r7 1 #r7 = 12
+ma r1 l #r0 = message = datamem[readaddress]
+bs r0 l 3 #r0 = b5 b4 b3 b2 b1 0 0 0 
+xor r0 r4 #compare message with pattern
+addi r7 3 #r7 = 15 (Jump to 60)
+beq r0 r3 #If pattern match jump to increment otherwise jump to case 4
+addi r7 1 #r7 = 16 (Jump to 64)
+beq r7 r7 #Jump to End of loop
+addi r7 0 #
+addi r7 0 #
+addi r7 0 #
+addi r7 0 #
+addi r7 0 #
+addi r5 1 #increment patternoccurrences (Part a)
+xor r2 r2 #Clear r2
+addi r2 1 #Set it equal to 1 indicate that we have found occurence
+addi r7 1 #r7 = 16
+addi r7 1 #r7 = 17 (Jump to 68)
+beq r2 r3 #Check if r2 = 0 if it does go to end of loop (68)
+addi r6 1 #If we didn’t jump increment bytesWithPattern in r6
+addi r7 0 #
+xor r2 r2 #clear r2
+addi r1 1 #move on to message byte
+xor r0 r0 #clear r0
+addi r0 1 #
+bs r0 l 3 #
+bs r0 l 2 #r0 = 32
+addi r7 3 #r7 = 20 (jump to 80)
+beq r1 r0 #if current byte = 32 then jump to END oF ParT a aND b
+xor r7 r7 #Clear r7
+addi r7 1 #
+beq r7 r7 #Jump to top of loop (instruction 4)
+addi r7 0 #
+xor r2 r2 #Clear r2
+xor r2 r0 #r2 = 32
+xor r0 r0 #Clear r0
+or r0 r5 #r0 = r5 (patternoccurences) need to write to 33
+addi r2 1 #r2 = 33
+ma r2 s #datamem[33] = patternoccurences 
+xor r0 r0 #clear r0
+or r0 r6 #r0 = r6 (bytesWithPattern) need to write to 34
+addi r2 1 #r2 = 34
+ma r2 s #datamem[34] = bytesWithPattern
+xor r1 r1 #reset r1 to 0
+addi r7 3 #r7 = 23
+addi r7 1 #r7 = 24 (JUMP TO 96)
+addi r7 0 #
+addi r7 0 #
+addi r7 0 #
+ma r1 l #Load FIrST bYTE
+xor r2 r2 #Clear r2
+xor r2 r0 #r2 = first byte
+bs r2 l 3 #
+bs r2 l 1 #r2 = b4 b3 b2 b1 0 0 0 0
+addi r1 1 #r1 = second byte address
+ma r1 l #Load SECOND bYTE
+bs r0 r 3 #
+bs r0 r 1  # r0 = 0 0 0 0 b8 b7 b6 b5 
+or r2 r0 # r0 = b4 b3 b2 b1 b8 b7 b6 b5
+addi r7 3 #r7 = 27 (Jump to 108)
+addi r7 0 #
+xor r0 r0 #Clear r0
+xor r0 r2 #Get a copy of the word we constructed into r0
+bs r0 r 3 #r0 = 0 0 0 b4 b3 b2 b1 b8
+bs r0 l 3 #r0 = b4 b3 b2 b1 b8 0 0 0
+xor r0 r4 #compare message
+addi r7 3 #r7 = 30 (Jump to 120)
+beq r0 r3 #if pattern matches jump to increment (120)
+addi r7 1 #r7 = 31 (Jump to 124)
+beq r7 r7 #Jump to Case 2
+addi r7 0 #
+addi r7 0 #
+addi r7 0 #
+addi r5 1 #Increment patternOccurences
+addi r7 1 #r7 = 31 (Jump to 124)
+addi r7 0 #
+addi r7 0 #
+xor r0 r0 #Clear r0
+xor r0 r2 #Copy over constructed bitstring in r2 into r0
+bs r0 r 2 #r0 = 0 0 b4 b3 b2 b1 b8 b7
+bs r0 l 3 #r0 = b3 b2 b1 b8 b7 0 0 0
+xor r0 r4 #
+addi r7 3 #r7 = 34 (Jump to 136)
+beq r0 r3 #if pattern matches jump to increment (136)
+addi r7 1 #r7 = 35 (Jump to 140)
+beq r7 r7 # Jump to case 3
+addi r7 0 #
+addi r7 0 #
+addi r7 0 #
+addi r5 1 #Increment pattern occurences
+addi r7 1 #r7 = 35
+addi r7 0 #
+addi r7 0 #
+xor r0 r0 #Clear r0
+xor r0 r2 #Copy over constructed bitstring in r2 into r0
+bs r0 r 1 #r0 = 0 b4 b3 b2 b1 b8 b7 b6
+bs r0 l 3 #r0 = b3 b2 b1 b8 b7 0 0 0
+xor r0 r4 #
+addi r7 3 #r7 = 38 (Jump to 152)
+beq r0 r3 #if pattern matches jump to increment (152)
+addi r7 1 #r7 = 39
+beq r7 r7 # Jump to case 4
+addi r7 0 #
+addi r7 0 #
+addi r7 0 #
+addi r5 1 #
+addi r7 1 #
+addi r7 0 #
+addi r7 0 #
+xor r0 r0 #Clear r0
+xor r0 r2 #Copy over constructed bitstring in r2 into r0
+bs r0 l 3 #r0 = b1 b8 b7 b6 b5 0 0 0 
+xor r0 r4 #
+addi r7 3 #r7 = 42 (Jump to 168)
+beq r0 r3 #if pattern matches jump to increment (168)
+addi r7 1 #r7 = 43 (Jump to 172)
+beq r7 r7 #Jump to END OF LOOP 2
+addi r7 0 #
+addi r7 0 #
+addi r7 0 #
+addi r7 0 #
+addi r5 1 #
+addi r7 1 #r7 = 43
+addi r7 0 #
+addi r7 0 #
+addi r7 3 #r7 = 46 (Jump to end of part c inst 184)
+xor r2 r2 # clear r2
+addi r2 3 #r2 = 0 0 0 0 0 0 1 1
+bs r2 l 2 #r2 = 0 0 0 0 1 1 0 0 
+addi r2 3 #r2 = 0 0 0 0 1 1 1 1
+bs r2 l 1 #r2 = 0 0 0 1 1 1 1 0
+addi r2 1 #r2 = 31
+beq r1 r2 #If r1 = 31 jump to END OF ParT C
+bs r7 r 1 #r7 = 23
+addi r7 1 #r7 = 24 (jump to top of loop inst 96)
+beq r7 r7 #Jump to top of loop 2
+addi r7 0 #
+addi r2 3 #r2 = 34
+addi r2 1 #r2 = 35
+xor r0 r0 #clear r0
+xor r0 r5 #r0 = total occurrences
+ma r2 s #mem[35
+done

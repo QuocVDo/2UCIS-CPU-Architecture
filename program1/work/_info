@@ -1,0 +1,402 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA_lite/20.1
+vALU
+Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z1 DXx4 work 11 Definitions 0 22 ;O_K76jzEb_hTVD=_;Q:N3
+DXx4 work 11 ALU_sv_unit 0 22 nD6iN09_V32L<8TXe_8?L3
+Z2 !s110 1655092407
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+!i10b 1
+!s100 8oi633J^z7i`1g0VeY=:F3
+IZ;PjOg@KORCDYf6Gf5eQd1
+!s105 ALU_sv_unit
+S1
+Z4 dC:/Users/burni/Downloads/128221518/program1
+Z5 w1655091124
+Z6 8C:/Users/burni/Downloads/128221518/program1/ALU.sv
+Z7 FC:/Users/burni/Downloads/128221518/program1/ALU.sv
+!i122 69
+L0 9 35
+Z8 OV;L;2020.1;71
+31
+Z9 !s108 1655092407.000000
+!s107 C:/Users/burni/Downloads/128221518/program1/ALU.sv|
+Z10 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/burni/Downloads/128221518/program1/ALU.sv|
+!i113 1
+Z11 o-work work -sv
+Z12 tCvgOpt 0
+n@a@l@u
+XALU_sv_unit
+R0
+R1
+R2
+VnD6iN09_V32L<8TXe_8?L3
+r1
+!s85 0
+!i10b 1
+!s100 Q`>M@NoU0OOBTS?C2oF<k2
+InD6iN09_V32L<8TXe_8?L3
+!i103 1
+S1
+R4
+R5
+R6
+R7
+!i122 69
+L0 8 0
+R8
+31
+R9
+Z13 !s107 C:/Users/burni/Downloads/128221518/program1/ALU.sv|
+R10
+!i113 1
+R11
+R12
+n@a@l@u_sv_unit
+vCtrl
+R0
+R2
+!i10b 1
+!s100 AiQl2:8]T]SnfQQ9VLHJP3
+Z14 !s11b Dg1SIo80bB@j0V0VzS_@n1
+ISJ^YenDM5biMEj_<O?8UR0
+R3
+S1
+R4
+R5
+8C:/Users/burni/Downloads/128221518/program1/Ctrl.sv
+FC:/Users/burni/Downloads/128221518/program1/Ctrl.sv
+!i122 56
+L0 12 75
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/burni/Downloads/128221518/program1/Ctrl.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/burni/Downloads/128221518/program1/Ctrl.sv|
+!i113 1
+R11
+R12
+n@ctrl
+vDataMem
+R0
+R2
+!i10b 1
+!s100 O:no066Oj^6fhZd6Bo07g3
+R14
+ImeUQ[_H=77l7:0?EfVPNB1
+R3
+S1
+R4
+R5
+8C:/Users/burni/Downloads/128221518/program1/DataMem.sv
+FC:/Users/burni/Downloads/128221518/program1/DataMem.sv
+!i122 57
+L0 1 23
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/burni/Downloads/128221518/program1/DataMem.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/burni/Downloads/128221518/program1/DataMem.sv|
+!i113 1
+R11
+R12
+n@data@mem
+XDefinitions
+R0
+R2
+!i10b 1
+!s100 ZG5XTJO>]Z:kfi<U0WFd;0
+R14
+I;O_K76jzEb_hTVD=_;Q:N3
+V;O_K76jzEb_hTVD=_;Q:N3
+S1
+R4
+R5
+8C:/Users/burni/Downloads/128221518/program1/Definitions.sv
+FC:/Users/burni/Downloads/128221518/program1/Definitions.sv
+!i122 58
+L0 1 0
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/burni/Downloads/128221518/program1/Definitions.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/burni/Downloads/128221518/program1/Definitions.sv|
+!i113 1
+R11
+R12
+n@definitions
+vDoneFlagComparator
+R0
+R2
+!i10b 1
+!s100 f?]n^P@@o5nQ]9I11o1bW2
+R14
+IZgga9FC`AAWTd^nCb3T8g1
+R3
+S1
+R4
+R5
+8C:/Users/burni/Downloads/128221518/program1/DoneFlagComparator.sv
+FC:/Users/burni/Downloads/128221518/program1/DoneFlagComparator.sv
+!i122 59
+L0 1 9
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/burni/Downloads/128221518/program1/DoneFlagComparator.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/burni/Downloads/128221518/program1/DoneFlagComparator.sv|
+!i113 1
+R11
+R12
+n@done@flag@comparator
+vInstMem
+R0
+R2
+!i10b 1
+!s100 VXMXL^a@K9XoiNTFVXoz00
+R14
+IA=kPWNTBN^?TUf]Km:83D1
+R3
+S1
+R4
+R5
+8C:/Users/burni/Downloads/128221518/program1/InstMem.sv
+FC:/Users/burni/Downloads/128221518/program1/InstMem.sv
+!i122 60
+L0 1 22
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/burni/Downloads/128221518/program1/InstMem.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/burni/Downloads/128221518/program1/InstMem.sv|
+!i113 1
+R11
+R12
+n@inst@mem
+vLUT
+R0
+R2
+!i10b 1
+!s100 XFPBTl4^bN]5IEOh>7ElU0
+R14
+I]`WXObYe5bkS=VEI8P9C_2
+R3
+S1
+R4
+R5
+8C:/Users/burni/Downloads/128221518/program1/LUT.sv
+FC:/Users/burni/Downloads/128221518/program1/LUT.sv
+!i122 61
+L0 1 18
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/burni/Downloads/128221518/program1/LUT.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/burni/Downloads/128221518/program1/LUT.sv|
+!i113 1
+R11
+R12
+n@l@u@t
+vmux2x1
+R0
+R2
+!i10b 1
+!s100 Z`j;7[3z>^`i69GKlOZ[>2
+R14
+I:G?BiS>13d<TXEHaeL<ZC0
+R3
+S1
+R4
+R5
+8C:/Users/burni/Downloads/128221518/program1/mux2x1.sv
+FC:/Users/burni/Downloads/128221518/program1/mux2x1.sv
+!i122 62
+L0 1 13
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/burni/Downloads/128221518/program1/mux2x1.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/burni/Downloads/128221518/program1/mux2x1.sv|
+!i113 1
+R11
+R12
+vmux3x1
+R0
+R2
+!i10b 1
+!s100 Of_EgcN`Q?0cz;PG7QiVz2
+R14
+I@`Mi8MlOTmmUFU=mL_c@F3
+R3
+S1
+R4
+R5
+8C:/Users/burni/Downloads/128221518/program1/mux3x1.sv
+FC:/Users/burni/Downloads/128221518/program1/mux3x1.sv
+!i122 63
+L0 1 14
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/burni/Downloads/128221518/program1/mux3x1.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/burni/Downloads/128221518/program1/mux3x1.sv|
+!i113 1
+R11
+R12
+vProgCtr
+R0
+R2
+!i10b 1
+!s100 <8jBSVmKj87TE:74dKCm90
+R14
+IE`7R_L?E4XJ83>jEj?Rf60
+R3
+S1
+R4
+R5
+8C:/Users/burni/Downloads/128221518/program1/ProgCtr.sv
+FC:/Users/burni/Downloads/128221518/program1/ProgCtr.sv
+!i122 64
+L0 7 32
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/burni/Downloads/128221518/program1/ProgCtr.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/burni/Downloads/128221518/program1/ProgCtr.sv|
+!i113 1
+R11
+R12
+n@prog@ctr
+vRegFile
+R0
+R2
+!i10b 1
+!s100 =@j0DJU69mdTDLC8DcUC?1
+R14
+IQ5PNRcMCo;`gFQ^[YeI@<2
+R3
+S1
+R4
+R5
+8C:/Users/burni/Downloads/128221518/program1/RegFile.sv
+FC:/Users/burni/Downloads/128221518/program1/RegFile.sv
+!i122 65
+L0 1 34
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/burni/Downloads/128221518/program1/RegFile.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/burni/Downloads/128221518/program1/RegFile.sv|
+!i113 1
+R11
+R12
+n@reg@file
+vSignExt
+R0
+R2
+!i10b 1
+!s100 =]NSo1RoCGNCbfaoEz@jA1
+R14
+IQo72k]R1]Cf4`QjZM[mLg3
+R3
+S1
+R4
+R5
+8C:/Users/burni/Downloads/128221518/program1/SignExt.sv
+FC:/Users/burni/Downloads/128221518/program1/SignExt.sv
+!i122 66
+L0 1 6
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/burni/Downloads/128221518/program1/SignExt.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/burni/Downloads/128221518/program1/SignExt.sv|
+!i113 1
+R11
+R12
+n@sign@ext
+vTopLevel
+R0
+R2
+!i10b 1
+!s100 ka@5313Jf1=F7CI`bYfP00
+R14
+IY0;GcPJn=;URheBmGgEc21
+R3
+S1
+R4
+R5
+8C:/Users/burni/Downloads/128221518/program1/TopLevel.sv
+FC:/Users/burni/Downloads/128221518/program1/TopLevel.sv
+!i122 67
+L0 5 338
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/burni/Downloads/128221518/program1/TopLevel.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/burni/Downloads/128221518/program1/TopLevel.sv|
+!i113 1
+R11
+R12
+n@top@level
+vTopLevel_tb
+R0
+R2
+!i10b 1
+!s100 ;=?IXMIXm37PI;=A;;9KT1
+R14
+IcIZEPibZfmMaBG4B3E37:1
+R3
+S1
+R4
+w1655092315
+8C:/Users/burni/Downloads/128221518/program1/TopLevel_tb.sv
+FC:/Users/burni/Downloads/128221518/program1/TopLevel_tb.sv
+!i122 68
+L0 9 177
+R8
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/burni/Downloads/128221518/program1/TopLevel_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/burni/Downloads/128221518/program1/TopLevel_tb.sv|
+!i113 1
+R11
+R12
+n@top@level_tb

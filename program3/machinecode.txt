@@ -1,0 +1,190 @@
+101010000 //read in bit pattern from datamem[32]
+000100000 //Copy bit pattern into r4 = p5 p4 p3 p2 p1 0 0 0
+000010010 //
+111111001 //r7 = 1
+101001000 //r0 = message = datamem[readaddress]
+110000111 //r0 = 0 0 0 b8 b7 b6 b5 b4 (clear bottom 3 bits)
+110000011 //r0 = b8 b7 b6 b5 b4 0 0 0 (shift into correct spot)
+000000100 //compare message with pattern (if perfect match r0 = all 0)
+111111010 //r7 = 3 (Jump to 12)
+011000011 //If pattern match jump to increment otherwise jump to case 2
+111111001 //r7 = 4 (Jump to 16)
+011111111 //Jump to case 2
+111101001 //increment patternoccurrences (Part a)
+000010010 //Clear r2
+111010001 //Set it equal to 1 indicate that we have found occurence
+111111001 //r7 = 4
+101001000 //r0 = message = datamem[readaddress]
+110000110 //r0 = 0 0 b8 b7 b6 b5 b4 b3
+110000011 //r0 = b7 b6 b5 b4 b3 0 0 0
+000000100 //compare message with pattern
+111111011 //r7 = 7 (Jump to 28)
+011000011 //If pattern match jump to increment otherwise jump to case 2
+111111001 //r7 = 8 (Jump to 32)
+011111111 //Jump to case 3
+111111000 //
+111111000 //
+111111000 //
+111111000 //
+111101001 //increment patternoccurrences (Part a)
+000010010 //Clear r2
+111010001 //Set it equal to 1 indicate that we have found occurence
+111111001 //r7 = 8
+101001000 //r0 = message = datamem[readaddress]
+110000101 //r0 = 0 b8 b7 b6 b5 b4 b3 b2
+110000011 //r0 = b6 b5 b4 b3 b2 0 0 0
+000000100 //compare message with pattern
+111111011 //r7 = 11 (Jump to 44)
+011000011 //If pattern match jump to increment otherwise jump to case 2
+111111001 //r7 = 12 (Jump to 48)
+011111111 //Jump to case 4
+111111000 //
+111111000 //
+111111000 //
+111111000 //
+111101001 //increment patternoccurrences (Part a)
+000010010 //Clear r2
+111010001 //Set it equal to 1 indicate that we have found occurence
+111111001 //r7 = 12
+101001000 //r0 = message = datamem[readaddress]
+110000011 //r0 = b5 b4 b3 b2 b1 0 0 0
+000000100 //compare message with pattern
+111111011 //r7 = 15 (Jump to 60)
+011000011 //If pattern match jump to increment otherwise jump to case 4
+111111001 //r7 = 16 (Jump to 64)
+011111111 //Jump to End of loop
+111111000 //
+111111000 //
+111111000 //
+111111000 //
+111111000 //
+111101001 //increment patternoccurrences (Part a)
+000010010 //Clear r2
+111010001 //Set it equal to 1 indicate that we have found occurence
+111111001 //r7 = 16
+111111001 //r7 = 17 (Jump to 68)
+011010011 //Check if r2 = 0 if it does go to end of loop (68)
+111110001 //If we didn’t jump increment bytesWithPattern in r6
+111111000 //
+000010010 //clear r2
+111001001 //move on to message byte
+000000000 //clear r0
+111000001 //
+110000011 //
+110000010 //r0 = 32
+111111011 //r7 = 20 (jump to 80)
+011001000 //if current byte = 32 then jump to END oF ParT a aND b
+000111111 //Clear r7
+111111001 //
+011111111 //Jump to top of loop (instruction 4)
+111111000 //
+000010010 //Clear r2
+000010000 //r2 = 32
+000000000 //Clear r0
+010000101 //r0 = r5 (patternoccurences) need to write to 33
+111010001 //r2 = 33
+101010100 //datamem[33] = patternoccurences
+000000000 //clear r0
+010000110 //r0 = r6 (bytesWithPattern) need to write to 34
+111010001 //r2 = 34
+101010100 //datamem[34] = bytesWithPattern
+000001001 //reset r1 to 0
+111111011 //r7 = 23
+111111001 //r7 = 24 (JUMP TO 96)
+111111000 //
+111111000 //
+111111000 //
+101001000 //Load FIrST bYTE
+000010010 //Clear r2
+000010000 //r2 = first byte
+110010011 //
+110010001 //r2 = b4 b3 b2 b1 0 0 0 0
+111001001 //r1 = second byte address
+101001000 //Load SECOND bYTE
+110000111 //
+110000101 //r0 = 0 0 0 0 b8 b7 b6 b5
+010010000 //r0 = b4 b3 b2 b1 b8 b7 b6 b5
+111111011 //r7 = 27 (Jump to 108)
+111111000 //
+000000000 //Clear r0
+000000010 //Get a copy of the word we constructed into r0
+110000111 //r0 = 0 0 0 b4 b3 b2 b1 b8
+110000011 //r0 = b4 b3 b2 b1 b8 0 0 0
+000000100 //compare message
+111111011 //r7 = 30 (Jump to 120)
+011000011 //if pattern matches jump to increment (120)
+111111001 //r7 = 31 (Jump to 124)
+011111111 //Jump to Case 2
+111111000 //
+111111000 //
+111111000 //
+111101001 //Increment patternOccurences
+111111001 //r7 = 31 (Jump to 124)
+111111000 //
+111111000 //
+000000000 //Clear r0
+000000010 //Copy over constructed bitstring in r2 into r0
+110000110 //r0 = 0 0 b4 b3 b2 b1 b8 b7
+110000011 //r0 = b3 b2 b1 b8 b7 0 0 0
+000000100 //
+111111011 //r7 = 34 (Jump to 136)
+011000011 //if pattern matches jump to increment (136)
+111111001 //r7 = 35 (Jump to 140)
+011111111 //Jump to case 3
+111111000 //
+111111000 //
+111111000 //
+111101001 //Increment pattern occurences
+111111001 //r7 = 35
+111111000 //
+111111000 //
+000000000 //Clear r0
+000000010 //Copy over constructed bitstring in r2 into r0
+110000101 //r0 = 0 b4 b3 b2 b1 b8 b7 b6
+110000011 //r0 = b3 b2 b1 b8 b7 0 0 0
+000000100 //
+111111011 //r7 = 38 (Jump to 152)
+011000011 //if pattern matches jump to increment (152)
+111111001 //r7 = 39
+011111111 //Jump to case 4
+111111000 //
+111111000 //
+111111000 //
+111101001 //
+111111001 //
+111111000 //
+111111000 //
+000000000 //Clear r0
+000000010 //Copy over constructed bitstring in r2 into r0
+110000011 //r0 = b1 b8 b7 b6 b5 0 0 0
+000000100 //
+111111011 //r7 = 42 (Jump to 168)
+011000011 //if pattern matches jump to increment (168)
+111111001 //r7 = 43 (Jump to 172)
+011111111 //Jump to END OF LOOP 2
+111111000 //
+111111000 //
+111111000 //
+111111000 //
+111101001 //
+111111001 //r7 = 43
+111111000 //
+111111000 //
+111111011 //r7 = 46 (Jump to end of part c inst 184)
+000010010 //clear r2
+111010011 //r2 = 0 0 0 0 0 0 1 1
+110010010 //r2 = 0 0 0 0 1 1 0 0
+111010011 //r2 = 0 0 0 0 1 1 1 1
+110010001 //r2 = 0 0 0 1 1 1 1 0
+111010001 //r2 = 31
+011001010 //If r1 = 31 jump to END OF ParT C
+110111101 //r7 = 23
+111111001 //r7 = 24 (jump to top of loop inst 96)
+011111111 //Jump to top of loop 2
+111111000 //
+111010011 //r2 = 34
+111010001 //r2 = 35
+000000000 //clear r0
+000000101 //r0 = total occurrences
+101010100 //mem[35
+100000111

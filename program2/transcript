@@ -1,0 +1,328 @@
+# Compile of Ctrl.sv was successful.
+# Compile of DataMem.sv was successful.
+# Compile of Definitions.sv was successful.
+# Compile of DoneFlagComparator.sv was successful.
+# Compile of InstMem.sv was successful.
+# Compile of LUT.sv was successful.
+# Compile of mux2x1.sv was successful.
+# Compile of mux3x1.sv was successful.
+# Compile of ProgCtr.sv was successful.
+# Compile of RegFile.sv was successful.
+# Compile of SignExt.sv was successful.
+# Compile of TopLevel.sv was successful.
+# Compile of TopLevel_tb.sv was successful.
+# Compile of ALU.sv was successful.
+# 14 compiles, 0 failed with no errors.
+vsim -gui work.TopLevel_tb
+# vsim -gui work.TopLevel_tb 
+# Start time: 08:53:07 on Jun 13,2022
+# Loading sv_std.std
+# Loading work.TopLevel_tb
+# Loading work.TopLevel
+# Loading work.InstMem
+# Loading work.ProgCtr
+# Loading work.DoneFlagComparator
+# Loading work.RegFile
+# Loading work.SignExt
+# Loading work.LUT
+# Loading work.mux3x1
+# Loading work.Definitions
+# Loading work.ALU_sv_unit
+# Loading work.ALU
+# Loading work.DataMem
+# Loading work.mux2x1
+# WARNING: No extended dataflow license exists
+add wave -position end  sim:/TopLevel_tb/Reset
+add wave -position end  sim:/TopLevel_tb/Req
+add wave -position end  sim:/TopLevel_tb/Clk
+add wave -position end  sim:/TopLevel_tb/Ack
+add wave -position end  sim:/TopLevel_tb/DUT/DM1/Core
+run -all
+# xxxxxxxxxxxxxxxx_xxxxxxxxxxxxxxxx
+# TEST
+# 
+# 00000000 00000000
+# 00000000 00000000
+# 00000000 00000000
+# 00000000 00000000
+# 00000000 00000000
+# 01000010 10000010
+# 01000011 10001100
+# 01000011 10010001
+# 01000101 11110101
+# 01000010 10011000
+# ** Note: $stop    : C:/Users/burni/Downloads/128221518/program2/TopLevel_tb.sv(170)
+#    Time: 23315 ns  Iteration: 0  Instance: /TopLevel_tb
+# Break in Module TopLevel_tb at C:/Users/burni/Downloads/128221518/program2/TopLevel_tb.sv line 170
+# Compile of Ctrl.sv was successful.
+# Compile of DataMem.sv was successful.
+# Compile of Definitions.sv was successful.
+# Compile of DoneFlagComparator.sv was successful.
+# Compile of InstMem.sv was successful.
+# Compile of LUT.sv was successful.
+# Compile of mux2x1.sv was successful.
+# Compile of mux3x1.sv was successful.
+# Compile of ProgCtr.sv was successful.
+# Compile of RegFile.sv was successful.
+# Compile of SignExt.sv was successful.
+# Compile of TopLevel.sv was successful.
+# Compile of TopLevel_tb.sv was successful.
+# Compile of ALU.sv was successful.
+# 14 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.TopLevel_tb
+# Loading work.TopLevel
+# Loading work.InstMem
+# Loading work.ProgCtr
+# Loading work.DoneFlagComparator
+# Loading work.RegFile
+# Loading work.SignExt
+# Loading work.LUT
+# Loading work.mux3x1
+# Loading work.Definitions
+# Loading work.ALU_sv_unit
+# Loading work.ALU
+# Loading work.DataMem
+# Loading work.mux2x1
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# xxxxxxxxxxxxxxxx_xxxxxxxxxxxxxxxx
+# TEST
+# 
+# 0000000000000000
+# 0000000000000000
+# 0000000000000000
+# 0000000000000000
+# 0000000000000000
+# 0100001010000010
+# 0100001110001100
+# 0100001110010001
+# 0100010111110101
+# 0100001010011000
+# ** Note: $stop    : C:/Users/burni/Downloads/128221518/program2/TopLevel_tb.sv(170)
+#    Time: 23315 ns  Iteration: 0  Instance: /TopLevel_tb
+# Break in Module TopLevel_tb at C:/Users/burni/Downloads/128221518/program2/TopLevel_tb.sv line 170
+# Compile of Ctrl.sv was successful.
+# Compile of DataMem.sv was successful.
+# Compile of Definitions.sv was successful.
+# Compile of DoneFlagComparator.sv was successful.
+# Compile of InstMem.sv was successful.
+# Compile of LUT.sv was successful.
+# Compile of mux2x1.sv was successful.
+# Compile of mux3x1.sv was successful.
+# Compile of ProgCtr.sv was successful.
+# Compile of RegFile.sv was successful.
+# Compile of SignExt.sv was successful.
+# Compile of TopLevel.sv was successful.
+# Compile of TopLevel_tb.sv was successful.
+# Compile of ALU.sv was successful.
+# 14 compiles, 0 failed with no errors.
+# Compile of Ctrl.sv was successful.
+# Compile of DataMem.sv was successful.
+# Compile of Definitions.sv was successful.
+# Compile of DoneFlagComparator.sv was successful.
+# Compile of InstMem.sv was successful.
+# Compile of LUT.sv was successful.
+# Compile of mux2x1.sv was successful.
+# Compile of mux3x1.sv was successful.
+# Compile of ProgCtr.sv was successful.
+# Compile of RegFile.sv was successful.
+# Compile of SignExt.sv was successful.
+# Compile of TopLevel.sv was successful.
+# Compile of TopLevel_tb.sv was successful.
+# Compile of ALU.sv was successful.
+# 14 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.TopLevel_tb
+# Loading work.TopLevel
+# Loading work.InstMem
+# Loading work.ProgCtr
+# Loading work.DoneFlagComparator
+# Loading work.RegFile
+# Loading work.SignExt
+# Loading work.LUT
+# Loading work.mux3x1
+# Loading work.Definitions
+# Loading work.ALU_sv_unit
+# Loading work.ALU
+# Loading work.DataMem
+# Loading work.mux2x1
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# xxxxxxxxxxxxxxxx_xxxxxxxxxxxxxxxx
+# TEST
+# 
+# 0100001010000010
+# 0100001110001100
+# 0100001110010001
+# 0100010111110101
+# 0100001010011000
+# 0100001101111110
+# 0100011001101100
+# 0100011101011101
+# 0100010011000110
+# 0100001110010110
+# ** Note: $stop    : C:/Users/burni/Downloads/128221518/program2/TopLevel_tb.sv(169)
+#    Time: 23315 ns  Iteration: 0  Instance: /TopLevel_tb
+# Break in Module TopLevel_tb at C:/Users/burni/Downloads/128221518/program2/TopLevel_tb.sv line 169
+# Compile of Ctrl.sv was successful.
+# Compile of DataMem.sv was successful.
+# Compile of Definitions.sv was successful.
+# Compile of DoneFlagComparator.sv was successful.
+# Compile of InstMem.sv was successful.
+# Compile of LUT.sv was successful.
+# Compile of mux2x1.sv was successful.
+# Compile of mux3x1.sv was successful.
+# Compile of ProgCtr.sv was successful.
+# Compile of RegFile.sv was successful.
+# Compile of SignExt.sv was successful.
+# Compile of TopLevel.sv was successful.
+# Compile of TopLevel_tb.sv was successful.
+# Compile of ALU.sv was successful.
+# 14 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.TopLevel_tb
+# Loading work.TopLevel
+# Loading work.InstMem
+# Loading work.ProgCtr
+# Loading work.DoneFlagComparator
+# Loading work.RegFile
+# Loading work.SignExt
+# Loading work.LUT
+# Loading work.mux3x1
+# Loading work.Definitions
+# Loading work.ALU_sv_unit
+# Loading work.ALU
+# Loading work.DataMem
+# Loading work.mux2x1
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# xxxxxxxxxxxxxxxx_xxxxxxxxxxxxxxxx
+# TEST
+# 
+# 0100001110010110
+# 0100010011000110
+# 0100011101011101
+# 0100011001101100
+# 0100001101111110
+# 0100001010011000
+# 0100010111110101
+# 0100001110010001
+# 0100001110001100
+# 0100001010000010
+# ** Note: $stop    : C:/Users/burni/Downloads/128221518/program2/TopLevel_tb.sv(171)
+#    Time: 23315 ns  Iteration: 0  Instance: /TopLevel_tb
+# Break in Module TopLevel_tb at C:/Users/burni/Downloads/128221518/program2/TopLevel_tb.sv line 171
+# Compile of Ctrl.sv was successful.
+# Compile of DataMem.sv was successful.
+# Compile of Definitions.sv was successful.
+# Compile of DoneFlagComparator.sv was successful.
+# Compile of InstMem.sv was successful.
+# Compile of LUT.sv was successful.
+# Compile of mux2x1.sv was successful.
+# Compile of mux3x1.sv was successful.
+# Compile of ProgCtr.sv was successful.
+# Compile of RegFile.sv was successful.
+# Compile of SignExt.sv was successful.
+# Compile of TopLevel.sv was successful.
+# Compile of TopLevel_tb.sv was successful.
+# Compile of ALU.sv was successful.
+# 14 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.TopLevel_tb
+# Loading work.TopLevel
+# Loading work.InstMem
+# Loading work.ProgCtr
+# Loading work.DoneFlagComparator
+# Loading work.RegFile
+# Loading work.SignExt
+# Loading work.LUT
+# Loading work.mux3x1
+# Loading work.Definitions
+# Loading work.ALU_sv_unit
+# Loading work.ALU
+# Loading work.DataMem
+# Loading work.mux2x1
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# xxxxxxxxxxxxxxxx_xxxxxxxxxxxxxxxx
+# TEST
+# 
+# 0100001110010110
+# 0100010011000110
+# 0100011101011101
+# 0100011001101100
+# 0100001101111110
+# 0100001010011000
+# 0100010111110101
+# 0100001110010001
+# 0100001110001100
+# 0100001010000010
+# ** Note: $stop    : C:/Users/burni/Downloads/128221518/program2/TopLevel_tb.sv(169)
+#    Time: 23315 ns  Iteration: 0  Instance: /TopLevel_tb
+# Break in Module TopLevel_tb at C:/Users/burni/Downloads/128221518/program2/TopLevel_tb.sv line 169
+# Compile of Ctrl.sv was successful.
+# Compile of DataMem.sv was successful.
+# Compile of Definitions.sv was successful.
+# Compile of DoneFlagComparator.sv was successful.
+# Compile of InstMem.sv was successful.
+# Compile of LUT.sv was successful.
+# Compile of mux2x1.sv was successful.
+# Compile of mux3x1.sv was successful.
+# Compile of ProgCtr.sv was successful.
+# Compile of RegFile.sv was successful.
+# Compile of SignExt.sv was successful.
+# Compile of TopLevel.sv was successful.
+# Compile of TopLevel_tb.sv was successful.
+# Compile of ALU.sv was successful.
+# 14 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.TopLevel_tb
+# Loading work.TopLevel
+# Loading work.InstMem
+# Loading work.ProgCtr
+# Loading work.DoneFlagComparator
+# Loading work.RegFile
+# Loading work.SignExt
+# Loading work.LUT
+# Loading work.mux3x1
+# Loading work.Definitions
+# Loading work.ALU_sv_unit
+# Loading work.ALU
+# Loading work.DataMem
+# Loading work.mux2x1
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# xxxxxxxxxxxxxxxx_xxxxxxxxxxxxxxxx
+# TEST
+# 
+# 0100001110010110
+# 0100010011000110
+# 0100011101011101
+# 0100011001101100
+# 0100001101111110
+# 0100001010011000
+# 0100010111110101
+# 0100001110010001
+# 0100001110001100
+# 0100001010000010
+# ** Note: $stop    : C:/Users/burni/Downloads/128221518/program2/TopLevel_tb.sv(169)
+#    Time: 23315 ns  Iteration: 0  Instance: /TopLevel_tb
+# Break in Module TopLevel_tb at C:/Users/burni/Downloads/128221518/program2/TopLevel_tb.sv line 169
+# End time: 16:40:16 on Jun 13,2022, Elapsed time: 7:47:09
+# Errors: 0, Warnings: 1

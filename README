@@ -1,0 +1,18 @@
+This is the README file for the 2UCIS Processor Design by Daniel Pak and Quoc-Zuy Do. 
+
+-------------------------------------------------------------------------------------
+
+Code navigation is simple. There are three folders named: "program1," "program2," and "program3." Each contains the module files for the processor (these should be same across all three) and their respective assembly.txt, machinecode.txt, and reg_preset.txt files (these should be tailored to each program). The LUT presets, and datamemory presets are the same.
+
+In each programX folder:
+Modules include ALU, Ctrl, DataMem, Definitions, DoneFlagComparator, InstMem, LUT, mux2x1, mux3x1, ProgCtr, RegFile, SignExt and TopLevel.
+
+ALU_tb and ProgCtr_tb can be run in modelsim to test their respective modules.
+
+TopLevel_tb.sv can be run to test the program as a whole.
+
+The assembler.py file and its usage.txt is located in the top directory and can be run to convert the assembly.txt files located in the progam folders to machinecode.txt files which are needed to run the program.
+
+Distribution of work: The two of us worked on everything together, from the initial design to writing the verilog files to troublehshooting each program. This was all done in our living room for about 10 hours a week. For the final sprint we spent about 15 hours, totalling around 115 hours for the entire quarter for each person. 
+
+All programs and features work as intended.
