@@ -1,6 +1,6 @@
-# 2UIC Archictecture Design
+# 2UCIS Archictecture Design
 
-2UIC is a compact RISC-type CPU archictecture with support for a customized instruction set. It was developed as a part of the coursework for CSE 141L at UCSD, and uploaded to Github after the courses completion. 
+2UCIS is a compact RISC-type CPU archictecture with support for a customized instruction set. It was developed as a part of the coursework for CSE 141L at UCSD, and uploaded to Github after the courses completion. 
 
 # Custom Assembler
 Assembler.py is a simple string parsing assembler that allows us to convert our MIPS-inspired assembly code into machine code that the 2UIC processor can run. Run by using:
